@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emuparadise.me download workaround</title>
+	
+	
+	<script>
+	function download(){
+		var input = document.getElementById("linkInput");
+		var value = input.value;
+		if(  value == ""){
+			alert("Enter Game Page URL from Emuparadise.me!")
+		} else{
+		
+			var dir = "https://www.emuparadise.me";
+			var id = encodeURIComponent(((value).split('/'))[5]);
+			var url = dir +"/roms/get-download.php" + "?gid=" + id + "&test=true";
+			downloadFromURL(url);
+		}
+				
+		function downloadFromURL(url) {
+			document.getElementById('iframe').src = url;
+		};
+	
+
+	}
+	</script>
+	
+  </head>
+  <body>
+	<h>Emuparadise Ripper</h>
+    <p>Paste link to game here:</p>
+	<input id ="linkInput" style="width:auto"></input>
+	<button onclick="download()">Download</button>
+	<iframe id="iframe" style="display:none;"></iframe>
+  </body>
+</html>
